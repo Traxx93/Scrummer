@@ -161,6 +161,7 @@
     <Compile Include="Infrastrucutre\Entities\Project.cs" />
     <Compile Include="Infrastrucutre\Entities\Sprint.cs" />
     <Compile Include="Infrastrucutre\Entities\Member.cs" />
+    <Compile Include="Infrastrucutre\Entities\WorkItem.cs" />
     <Compile Include="Infrastrucutre\Enums\Priority.cs" />
     <Compile Include="Infrastrucutre\Enums\Roles.cs" />
     <Compile Include="Models\UserViewModel\AddUserViewModel.cs" />
