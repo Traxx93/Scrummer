@@ -157,13 +157,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastrucutre\Context\ScrumerContext.cs" />
-    <Compile Include="Infrastrucutre\Entities\DailyPlan.cs" />
+    <Compile Include="Infrastrucutre\Entities\Issue.cs" />
+    <Compile Include="Infrastrucutre\Entities\Meeting.cs" />
     <Compile Include="Infrastrucutre\Entities\Project.cs" />
     <Compile Include="Infrastrucutre\Entities\Sprint.cs" />
-    <Compile Include="Infrastrucutre\Entities\Member.cs" />
+    <Compile Include="Infrastrucutre\Entities\User.cs" />
     <Compile Include="Infrastrucutre\Entities\WorkItem.cs" />
     <Compile Include="Infrastrucutre\Enums\Priority.cs" />
-    <Compile Include="Infrastrucutre\Enums\Roles.cs" />
+    <Compile Include="Infrastrucutre\Enums\Role.cs" />
+    <Compile Include="Infrastrucutre\Enums\Type.cs" />
     <Compile Include="Models\UserViewModel\AddUserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,13 +11,20 @@ namespace Scrumer.Infrastrucutre.Entities
     {
         [Key]
         public int SprintID { get; set; }
+
         [Required]
         public DateTime StartDate { get; set; }
+
         [Required]
         public DateTime EndDate { get; set; }
+
         [Required]
-        public ICollection<Member> Members { get; set; }
+        public string ScrumGoal { get; set; }
+
         [Required]
-        public Member ScrumMaster { get; set; }
+        public ICollection<User> Users { get; set; }
+
+        [ForeignKey("ProjectID")]
+        public Project Project { get; set; }
     }
 }

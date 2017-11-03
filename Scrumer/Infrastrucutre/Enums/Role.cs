@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Scrumer.Infrastrucutre.Enums
 {
-   public enum Roles
+   public enum Role
     {
         PRODUCT_OWNER = 0,
         SCRUM_MASTER = 1,

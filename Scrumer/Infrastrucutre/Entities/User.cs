@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Scrumer.Infrastrucutre.Entities
 {
-    public class Member 
+    public class User
     {
         [Key]
         [Required]
@@ -20,6 +20,6 @@ namespace Scrumer.Infrastrucutre.Entities
         public string LastName { get; set; }
 
         [Required]
-        public Roles Role { get; set; }
+        public Role Role { get; set; }
     }
 }

@@ -11,6 +11,6 @@ namespace Scrumer.Models.UserViewModel
         public int UserID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Roles Role { get; set; }
+        public Role Role { get; set; }
     }
 }

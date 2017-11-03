@@ -10,8 +10,11 @@ namespace Scrumer.Infrastrucutre.Entities
     {
         [Key]
         public int ProjectId { get; set; }
+
         [Required]
         public string Title { get; set; }
-        public ICollection<Member> members { get; set; }
+
+
+        public virtual ICollection<Sprint> Sprints { get; set; }
     }
 }

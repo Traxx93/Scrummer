@@ -6,14 +6,16 @@ using System.Web;
 
 namespace Scrumer.Infrastrucutre.Entities
 {
-    public class DailyPlan
+    public class Issue
     {
         [Key]
-        public int DailyPlanID { get; set; }
+        public int IssueID { get; set; }
         [Required]
-        public DateTime Date { get; set; }
+        public string Subject { get; set; }
 
-        //TODO Put ICollection for WorkItems
+        public string Description { get; set; }
 
+        [Required]
+        public Type Type { get; set; }
     }
 }
