@@ -152,7 +152,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -166,6 +166,7 @@
     <Compile Include="Infrastrucutre\Enums\Priority.cs" />
     <Compile Include="Infrastrucutre\Enums\Role.cs" />
     <Compile Include="Infrastrucutre\Enums\Type.cs" />
+    <Compile Include="MapperConfig\MapperProvider.cs" />
     <Compile Include="Models\UserViewModel\AddUserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,4 +1,7 @@
-﻿using Scrumer.Infrastrucutre.Context;
+﻿using AutoMapper;
+using Scrumer.Infrastrucutre.Context;
+using Scrumer.Infrastrucutre.Entities;
+using Scrumer.Models.UserViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +10,15 @@ using System.Web.Mvc;
 
 namespace Scrumer.Controllers
 {
-    public class MemberController : Controller
+    public class UserController : Controller
     {
+        ScrumerContext context;
+        IMapper mapper;
 
-        public MemberController()
+        public UserController(ScrumerContext context, IMapper mapper)
         {
-            
+            this.context = context;
+            this.mapper = mapper;
         }
         
         // GET: Member
@@ -36,18 +42,21 @@ namespace Scrumer.Controllers
 
         // POST: Member/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(AddUserViewModel newUserViewModel)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            if (ModelState.IsValid) {
+                var newUserEntity = mapper.Map<AddUserViewModel, User>(newUserViewModel);
+                context.Users.Add(newUserEntity);
+                context.SaveChanges();
 
-                return RedirectToAction("Index");
+                return View("Index");
             }
-            catch
+            else
             {
                 return View();
             }
+
+
         }
 
         // GET: Member/Edit/5
