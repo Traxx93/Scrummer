@@ -18,8 +18,9 @@ namespace Scrumer.Infrastrucutre.Entities
         [StringLength(200)]
         public string Description { get; set; }
 
+        public int? UserID { get; set; }
         [ForeignKey("UserID")]
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
     }
 }

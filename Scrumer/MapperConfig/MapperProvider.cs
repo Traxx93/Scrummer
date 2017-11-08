@@ -16,7 +16,9 @@ namespace Scrumer.MapperConfig
             {
 
                 cfg.CreateMap<AddUserViewModel, User>();
-
+                cfg.CreateMap<User, UserViewModel>();
+                cfg.CreateMap<User, EditUserViewModel>();
+                cfg.CreateMap<EditUserViewModel, User>();
             }
 
             );

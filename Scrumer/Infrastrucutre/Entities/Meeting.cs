@@ -12,12 +12,7 @@ namespace Scrumer.Infrastrucutre.Entities
         [Key]
         public int MeetingID { get; set; }
 
-        [ForeignKey("SprintID")]
-        public Sprint Sprint { get; set; }
-
-
-        [ForeignKey("UserID")]
-        public User User{ get; set; }
+        
 
         [StringLength(200)]
         public string DayBefore { get; set; }
@@ -28,5 +23,17 @@ namespace Scrumer.Infrastrucutre.Entities
         [StringLength(200)]
         public string Problems { get; set; }
 
+
+        public int? SprintID { get; set; }
+        [ForeignKey("SprintID")]
+        public virtual Sprint Sprint { get; set; }
+
+        public int? UserID { get; set; }
+        [ForeignKey("UserID")]
+        public virtual User User { get; set; }
+
+
+
+  
     }
 }

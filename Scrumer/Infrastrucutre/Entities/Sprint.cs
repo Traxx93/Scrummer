@@ -24,7 +24,8 @@ namespace Scrumer.Infrastrucutre.Entities
         [Required]
         public ICollection<User> Users { get; set; }
 
+        public int? ProjectID { get; set; }
         [ForeignKey("ProjectID")]
-        public Project Project { get; set; }
+        public virtual Project Project { get; set; }
     }
 }

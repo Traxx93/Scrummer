@@ -4,6 +4,7 @@ using Scrumer.Infrastrucutre.Entities;
 using Scrumer.Models.UserViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -15,65 +16,83 @@ namespace Scrumer.Controllers
         ScrumerContext context;
         IMapper mapper;
 
-        public UserController(ScrumerContext context, IMapper mapper)
+        public UserController() { }
+
+        public UserController(ScrumerContext context,IMapper mapper)
         {
             this.context = context;
             this.mapper = mapper;
+
         }
+
         
+
         // GET: Member
+        [HttpGet]
         public ActionResult Index()
         {
-            return View(nameof(Index));
+            var userEntities = context.Users;
+            var userViewModel = mapper.Map<IEnumerable<User>, IEnumerable<UserViewModel>>(userEntities);
+            return View(userViewModel);
         }
 
         // GET: Member/Details/5
         public ActionResult Details(int id)
         {
-            
+
             return View();
         }
 
         // GET: Member/Create
         public ActionResult Create()
         {
-            return View();
+            var model = new AddUserViewModel();
+            return View(model);
         }
 
         // POST: Member/Create
         [HttpPost]
         public ActionResult Create(AddUserViewModel newUserViewModel)
         {
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 var newUserEntity = mapper.Map<AddUserViewModel, User>(newUserViewModel);
                 context.Users.Add(newUserEntity);
                 context.SaveChanges();
 
-                return View("Index");
+                return RedirectToAction("Index");
             }
             else
             {
                 return View();
             }
-
-
         }
 
-        // GET: Member/Edit/5
+        [HttpGet]
         public ActionResult Edit(int id)
         {
-            return View();
+            var editUserEntity = context.Users.Find(id);
+            var editUserViewModel = mapper.Map<User, EditUserViewModel>(editUserEntity);
+            return View(editUserViewModel);
         }
 
-        // POST: Member/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(EditUserViewModel editUserViewModel)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    var editUserEntity = mapper.Map<EditUserViewModel, User>(editUserViewModel);
+                    context.Entry(editUserEntity).State = EntityState.Modified;
+                    context.SaveChanges();
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch
             {
