@@ -6,13 +6,13 @@ using System.Web;
 
 namespace Scrumer.Models.UserViewModel
 {
-
-    public class UserViewModel
-    {
+    public class DetailsUserViewModel
+    { 
         public int UserID { get; set; }
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
+
         public Role Role { get; set; }
     }
 }
-

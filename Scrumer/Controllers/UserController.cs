@@ -33,21 +33,24 @@ namespace Scrumer.Controllers
         {
             var userEntities = context.Users;
             var userViewModel = mapper.Map<IEnumerable<User>, IEnumerable<UserViewModel>>(userEntities);
-            return View(userViewModel);
+            return View("UserIndex", userViewModel);
         }
-
         // GET: Member/Details/5
+        //TODO moram uraditi details za korisnike
+        [HttpGet]
         public ActionResult Details(int id)
         {
+            var userEntity = context.Users.Find(id);
+            var detailsUserViewModel = mapper.Map<User, DetailsUserViewModel>(userEntity);
 
-            return View();
+            return View("DetailsUser", detailsUserViewModel);
         }
 
         // GET: Member/Create
         public ActionResult Create()
         {
             var model = new AddUserViewModel();
-            return View(model);
+            return View("AddUser",model);
         }
 
         // POST: Member/Create
@@ -73,7 +76,7 @@ namespace Scrumer.Controllers
         {
             var editUserEntity = context.Users.Find(id);
             var editUserViewModel = mapper.Map<User, EditUserViewModel>(editUserEntity);
-            return View(editUserViewModel);
+            return View("EditUser", editUserViewModel);
         }
 
         [HttpPost]

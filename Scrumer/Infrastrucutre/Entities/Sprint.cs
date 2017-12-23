@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Scrumer.Infrastrucutre.Entities;
 using System.Linq;
 using System.Web;
 
@@ -23,6 +24,7 @@ namespace Scrumer.Infrastrucutre.Entities
 
         [Required]
         public ICollection<User> Users { get; set; }
+        public ICollection<WorkItem> WorkItems { get; set; }
 
         public int? ProjectID { get; set; }
         [ForeignKey("ProjectID")]

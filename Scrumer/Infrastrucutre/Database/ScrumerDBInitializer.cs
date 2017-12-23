@@ -1,6 +1,7 @@
 ﻿using Scrumer.Infrastrucutre.Context;
 using Scrumer.Infrastrucutre.Entities;
 using Scrumer.Infrastrucutre.Enums;
+using Scrumer.Models.UserViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -25,6 +26,20 @@ namespace Scrumer.Infrastrucutre.Database
             context.Users.Add(user3);
             context.Users.Add(user4);
             context.Users.Add(user5);
+
+            var users = new List<User>
+            {
+                user1,
+                user2,
+                user3
+            };
+
+            var project1 = new Project() { Title = "Projekat 1" };
+            var project2 = new Project() { Title = "Projekat 2" };
+            var project3 = new Project() { Title = "Projekat 3" };
+
+
+            var scrum1 = new Sprint() { StartDate = DateTime.Parse("12/03/2017"), EndDate = DateTime.Parse("12/31/2017"), Users = users, Project = project1};
 
 
             context.SaveChanges();
