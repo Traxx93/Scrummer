@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Scrumer.Infrastrucutre.Entities
+namespace Scrumer.Models.ProjectViewModel
 {
-    public class Project
+    public class ProjectViewModel
     {
-        [Key]
         public int ProjectID { get; set; }
 
-        [Required]
         public string Title { get; set; }
 
     }
